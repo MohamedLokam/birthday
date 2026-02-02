@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hanenn! 🎂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #ffa502;
+            --bg-gradient: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            border: 5px solid #fff;
+        }
+
+        .emojis {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .message {
+            font-size: 1.5rem;
+            color: #2f3542;
+            margin-bottom: 20px;
+        }
+
+        .cake-container {
+            margin: 20px 0;
+        }
+
+        .cake-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .cake-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* زرار الموسيقى */
+        #musicBtn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #musicBtn:hover {
+            background: #ff6b81;
+            transform: translateY(-3px);
+        }
+
+        .candle {
+            font-size: 2.5rem;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* أنيميشن بسيط */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body>
+
+    <div class="card float">
+        <div class="emojis">🎈 🎊 ✨</div>
+        <h1>Happy Birthday Hanenn</h1>
+        <p class="message">كل سنة وإنتي طيبة وبخير يا حنين! 🎂🕯️</p>
+        
+        <div class="cake-container">
+            <img src="https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Birthday Cake" class="cake-img">
+            <span class="candle">🕯️</span>
+        </div>
+
+        <button id="musicBtn">
+            <span id="icon">🎵</span> تشغيل الأغنية
+        </button>
+
+        <p style="margin-top: 20px; color: #747d8c; font-size: 0.9rem;">أتمنى لكِ سنة سعيدة مليانة نجاح 🎉</p>
+    </div>
+
+    <audio id="birthdayAudio" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById('birthdayAudio');
+        const btn = document.getElementById('musicBtn');
+        const icon = document.getElementById('icon');
+
+        btn.onclick = function() {
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = '<span>⏸️</span> إيقاف الموسيقى';
+                btn.style.background = '#2ed573';
+            } else {
+                audio.pause();
+                btn.innerHTML = '<span>🎵</span> تشغيل الأغنية';
+                btn.style.background = '#ff4757';
+            }
+        };
+    </script>
+</body>
+</html>
