@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Hanenn! 🎂</title>
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary-color: #ff4757;
@@ -14,14 +17,12 @@
 
         body {
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             background: var(--bg-gradient);
             font-family: 'Cairo', sans-serif;
-            overflow-x: hidden;
         }
 
         .card {
@@ -32,119 +33,112 @@
             text-align: center;
             max-width: 450px;
             width: 90%;
-            position: relative;
             border: 5px solid #fff;
         }
 
         .emojis {
             font-size: 3rem;
-            margin-bottom: 10px;
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             color: var(--primary-color);
             margin: 10px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .message {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: #2f3542;
             margin-bottom: 20px;
-        }
-
-        .cake-container {
-            margin: 20px 0;
         }
 
         .cake-img {
             width: 100%;
             border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            margin: 15px 0;
+            transition: transform 0.3s;
         }
 
         .cake-img:hover {
             transform: scale(1.05);
         }
 
-        /* زرار الموسيقى */
         #musicBtn {
             background: var(--primary-color);
             color: white;
             border: none;
             padding: 15px 30px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
-            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            transition: 0.3s;
         }
 
         #musicBtn:hover {
-            background: #ff6b81;
             transform: translateY(-3px);
         }
 
-        .candle {
-            font-size: 2.5rem;
-            display: block;
-            margin-top: 10px;
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
         }
 
-        /* أنيميشن بسيط */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .float {
+            animation: float 3s ease-in-out infinite;
         }
-        .float { animation: float 3s ease-in-out infinite; }
     </style>
 </head>
+
 <body>
 
-    <div class="card float">
-        <div class="emojis">🎈 🎊 ✨</div>
-        <h1>Happy Birthday Hanenn</h1>
-        <p class="message">كل سنة وإنتي طيبة وبخير يا حنين! 🎂🕯️</p>
-        
-        <div class="cake-container">
-            <img src="https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Birthday Cake" class="cake-img">
-            <span class="candle">🕯️</span>
-        </div>
+<div class="card float">
+    <div class="emojis">🎈 🎊 ✨</div>
+    <h1>Happy Birthday Hanenn</h1>
+    <p class="message">كل سنة وإنتي طيبة وبخير يا حنين 🎂💖</p>
 
-        <button id="musicBtn">
-            <span id="icon">🎵</span> تشغيل الأغنية
-        </button>
+    <img class="cake-img"
+         src="https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg?auto=compress&cs=tinysrgb&w=600"
+         alt="Birthday Cake">
 
-        <p style="margin-top: 20px; color: #747d8c; font-size: 0.9rem;">أتمنى لكِ سنة سعيدة مليانة نجاح 🎉</p>
-    </div>
+    <button id="musicBtn">
+        <span id="icon">🎵</span>
+        <span id="text">تشغيل الأغنية</span>
+    </button>
 
-    <audio id="birthdayAudio" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
+    <p style="margin-top:20px;color:#747d8c;font-size:0.9rem;">
+        أتمنى لكِ سنة سعيدة مليانة نجاح 🎉
+    </p>
+</div>
 
-    <script>
-        const audio = document.getElementById('birthdayAudio');
-        const btn = document.getElementById('musicBtn');
-        const icon = document.getElementById('icon');
+<audio id="birthdayAudio" preload="none" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
-        btn.onclick = function() {
-            if (audio.paused) {
-                audio.play();
-                btn.innerHTML = '<span>⏸️</span> إيقاف الموسيقى';
-                btn.style.background = '#2ed573';
-            } else {
-                audio.pause();
-                btn.innerHTML = '<span>🎵</span> تشغيل الأغنية';
-                btn.style.background = '#ff4757';
-            }
-        };
-    </script>
+<script>
+    const audio = document.getElementById("birthdayAudio");
+    const btn = document.getElementById("musicBtn");
+    const icon = document.getElementById("icon");
+    const text = document.getElementById("text");
+
+    btn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            icon.textContent = "⏸️";
+            text.textContent = "إيقاف الموسيقى";
+            btn.style.background = "#2ed573";
+        } else {
+            audio.pause();
+            icon.textContent = "🎵";
+            text.textContent = "تشغيل الأغنية";
+            btn.style.background = "#ff4757";
+        }
+    });
+</script>
+
 </body>
 </html>
